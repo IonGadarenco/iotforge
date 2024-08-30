@@ -21,11 +21,23 @@
                 <ul class="dropdown-menu absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg text-sm z-10"
                     aria-labelledby="userMenuButton">
 
-                    <li><a class="dropdown-item py-2 px-4 text-gray-700 hover:bg-gray-100" href="{{route('profile.show')}}">Profile</a></li>
+                    <li>
+                        <a class="dropdown-item py-2 px-4 text-gray-700 hover:bg-gray-100"
+                            href="{{ route('profile.show') }}">Profile</a>
+                    </li>
                     <li>
                         <hr class="dropdown-divider my-1">
                     </li>
-                    <li><a class="dropdown-item py-2 px-4 text-gray-700 hover:bg-gray-100" href="{{route('logout')}}">Sign out</a></li>
+                    <li>
+                        <a class="dropdown-item py-2 px-4 text-gray-700 hover:bg-gray-100" href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out
+                        </a>
+
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </div>
         </nav>
