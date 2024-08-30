@@ -1,14 +1,13 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg bg-gradient-to-r from-blue-500 to-teal-500">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
                     <div x-data="{ showModal: false }" @close-modal.window="showModal = false"> <!-- Alpine.js controller -->
                         <div class="px-4 sm:px-6 lg:px-8">
                             <div class="sm:flex sm:items-center justify-between">
                                 <div class="sm:flex-auto">
-                                    <h1 class="text-base font-semibold leading-6 text-gray-900">Devices</h1>
-                                    <p class="mt-2 text-sm text-gray-700">A list of all the devices</p>
+                                    <h1 class="text-base font-semibold leading-3 text-white text-3xl">Devices</h1>
                                 </div>
                                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                                     <button @click="showModal = true" type="button"

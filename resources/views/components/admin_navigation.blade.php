@@ -3,16 +3,23 @@
         <nav class="flex flex-wrap items-center gap-6 sm:gap-8 justify-between">
             <div class="flex items-center gap-6 sm:gap-8">
                 <a href="{{ route('dashboard') }}"
-                    class="font-semibold text-xl text-gray-800 leading-tight hover:text-gray-600 transition-colors duration-200">
-                    {{ __('Dashboard') }}
+                   class="font-semibold text-xl leading-tight transition-colors duration-200
+                   {{ Route::currentRouteName() == 'dashboard' ? 'text-blue-600 underline' : 'text-gray-800 hover:text-gray-600' }}">
+                   {{ __('Dashboard') }}
                 </a>
+
                 <a href="{{ route('device.index') }}"
-                    class="font-semibold text-xl text-gray-800 leading-tight hover:text-gray-600 transition-colors duration-200">
-                    {{ __('Devices') }}
+                   class="font-semibold text-xl leading-tight transition-colors duration-200
+                   {{ Route::currentRouteName() == 'device.index' ? 'text-blue-600 underline' : 'text-gray-800 hover:text-gray-600' }}">
+                   {{ __('Devices') }}
                 </a>
             </div>
+
+
             <!-- User Profile Dropdown -->
-            <div class="relative">
+            <div class="relative flex items-center gap-2">
+                <span class="py-4 font-semibold text-gray-800"><a href="{{route('dashboard')}}">{{auth()->user()->name}}</a></span>
+
                 <button class="flex items-center focus:outline-none" id="userMenuButton" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"

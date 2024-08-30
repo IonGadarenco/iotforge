@@ -1,6 +1,6 @@
 <div class="m-4 p-6 bg-white rounded-lg shadow-md">
     <!-- Device Details -->
-    <div>
+    <div >
         <h1 class="text-2xl font-bold mb-4">Device Details</h1>
         <table class="min-w-full text-left border-collapse border border-gray-200">
             <thead>
