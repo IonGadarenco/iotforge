@@ -1,5 +1,4 @@
-
-<div class="m-4 p-6 bg-gray rounded-lg shadow-md">
+<div class="m-4 p-6 bg-white rounded-lg shadow-md">
     <!-- Device Details -->
     <div >
         <h1 class="text-2xl font-bold mb-4">Device Details</h1>
