@@ -32,8 +32,7 @@ class CreateDevice extends Component
             "device_identifier" => Str::uuid()
         ]);
 
-        $this->dispatch("deviceCreated");
-        $this->dispatch("closeCreateDeviceModal");
+        $this->dispatch("refreshDevices");
         $this->reset("name", "device_type", "device_identifier", "user_id");
     }
     public function render()
