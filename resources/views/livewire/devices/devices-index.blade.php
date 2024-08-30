@@ -19,7 +19,9 @@
                         <td class="py-3 px-6 text-white">{{ $device->device_identifier }}</td>
                         <td class="py-3 px-6 text-white">
                             <a href="{{ route('device.show', $device->id) }}" class="text-indigo-400 hover:text-indigo-300 mr-4">View</a>
-                            <a href="{{ route('device.edit', $device->id) }}" class="text-indigo-400 hover:text-indigo-300">Edit</a>
+                            <a href="{{ route('device.edit', $device->id) }}" class="text-indigo-400 hover:text-indigo-300 mr-4">Edit</a>
+                            {{-- <a href="{{ route('device.delete', $device->id) }}" class="text-indigo-400 hover:text-indigo-300">Delete</a> --}}
+                            <a href="#" wire:click="deleteDevice({{$device->id}})" class="text-indigo-400 hover:text-indigo-300">Delete</a>
                         </td>
                     </tr>
                 @endforeach
