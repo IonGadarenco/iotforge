@@ -2,7 +2,6 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
                     <div x-data="{ showModal: false }" @close-modal.window="showModal = false"> <!-- Alpine.js controller -->
                         <div class="px-4 sm:px-6 lg:px-8">

@@ -23,12 +23,11 @@
 
 
     <div class="min-h-screen bg-gray-100">
-
-
         <!-- Page Heading -->
 
         @include('components.admin_navigation')
         <!-- Page Content -->
+
         <main>
             {{ $slot }}
         </main>
