@@ -925,7 +925,7 @@
                             <!-- User Profile Dropdown -->
                             <div class="relative flex items-center gap-2">
                                 <!-- Username -->
-                                <span class="py-4 font-semibold text-gray-800"><a href="{{route('dashboard')}}">Victor</a></span>
+                                <span class="py-4 font-semibold text-gray-800"><a href="{{route('dashboard')}}">{{auth()->user()->name}}</a></span>
 
                                 <!-- Profile Dropdown Button -->
                                 <button class="flex items-center focus:outline-none" id="userMenuButton"
