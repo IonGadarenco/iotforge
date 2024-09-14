@@ -39,13 +39,11 @@
                                                 </svg>
                                             </button>
                                         </div>
-
                                         <!-- Form -->
                                         @livewire('devices.create-device')
                                     </div>
                                 </div>
                             </div>
-
                             {{-- @livewire("devices.devices-index") --}}
                             <livewire:devices.devices-index />
 
@@ -53,7 +51,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </x-app-layout>

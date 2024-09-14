@@ -21,3 +21,4 @@ Route::middleware([
 Route::get('/devices', [DeviceController::class,'index'])->name('device.index');
 Route::get('/device/{id}/edit', [DeviceController::class,'edit'])->name('device.edit');
 Route::get('/device/{id}', [DeviceController::class,'show'])->name('device.show');
+Route::get('/device/{id}/delete', [DeviceController::class,'delete'])->name('device.delete');
