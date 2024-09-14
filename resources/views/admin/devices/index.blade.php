@@ -1,5 +1,5 @@
-@extends("layouts.admin")
-@section("content")
+@extends('layouts.admin')
+@section('content')
     <div class="content content-full">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
@@ -9,7 +9,7 @@
                         data-bs-target="#addDeevice">
                         <i class="fa fa-plus me-1 opacity-50"></i> Adaugă Dispozitiv
                     </button>
-                    @include("admin.devices.create")
+                    @include('admin.devices.create')
                 </div>
             </div>
             <div class="row">
@@ -42,21 +42,22 @@
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     <div class="form-check form-switch d-flex justify-content-center">
                                                         <input class="form-check-input" type="checkbox" id="active"
-                                                               name="active"
-                                                               @if ($device->active) checked @endif
-                                                               onchange="$.ajax({ url: '{{ route('admin.devices.changeStatus', $device->id) }}' });">
+                                                            name="active" @if ($device->active) checked @endif
+                                                            onchange="$.ajax({ url: '{{ route('admin.devices.changeStatus', $device->id) }}' });">
                                                     </div>
                                                 </td>
-                                                <td align="right">
-                                                    <a href="{{ route("admin.devices.edit", $device->id) }}"><i
-                                                            class="far fa-edit text-info"></i></a>
-                                                    <a href="#"
-                                                        onclick="DeleteConfirm('{{ route("admin.devices.destroy", $device->id) }}');"
-                                                        data-target="#deleteContact_{{ $device->id }}"> <i
-                                                            class="far fa-trash-alt text-danger"></i></a>
+                                                <td class="text-end">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#seeData_{{$device->id}}"><i class="far fa-eye text-primary me-2"></i></a>
+                                                    <a href="{{ route('admin.devices.edit', $device->id) }}"><i class="far fa-edit text-info me-2"></i></a>
+                                                    <a href="#" onclick="DeleteConfirm('{{ route('admin.devices.destroy', $device->id) }}');" data-target="#deleteContact_{{ $device->id }}">
+                                                        <i class="far fa-trash-alt text-danger"></i>
+                                                    </a>
                                                 </td>
+
                                             </tr>
                                         </tbody>
+                                        @include('admin.devices.viewData', $device)
+
                                     @endforeach
                                 </table>
                             </div>
