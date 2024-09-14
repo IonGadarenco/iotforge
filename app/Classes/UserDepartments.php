@@ -82,7 +82,7 @@ class UserDepartments
         self::$id = 'devices';
         self::$sort_order = ++$sort;
         self::$name = trans('Dispozitive');
-        self::$icon = "far fa-list-alt";
+        self::$icon = "fas fa-desktop";
         self::clear_subdepartments();
         self::add_subdepartment('devices', trans('link.to_devices'), route('admin.devices'));
 
@@ -102,7 +102,7 @@ class UserDepartments
         self::$id = 'nomenclatures';
         self::$sort_order = ++$sort;
         self::$name = trans('Nomenclatoare');
-        self::$icon = "far fa-list-alt";
+        self::$icon = "si si-grid";
         self::clear_subdepartments();
         self::add_subdepartment('projects', trans('link.to_projects'), route('admin.projects'));
         self::add_subdepartment('partners', trans('link.to_partners'), route('admin.partners'));

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'site_name' => 'Contact',
+    'site_name' => 'IoT',
     'all' => 'Все',
     'users' => 'Пользователи',
     'add' => 'Добавить',
