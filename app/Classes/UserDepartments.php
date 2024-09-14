@@ -79,6 +79,15 @@ class UserDepartments
 
         $sort = 0;
 
+        self::$id = 'devices';
+        self::$sort_order = ++$sort;
+        self::$name = trans('Dispozitive');
+        self::$icon = "far fa-list-alt";
+        self::clear_subdepartments();
+        self::add_subdepartment('devices', trans('link.to_devices'), route('admin.devices'));
+
+        self::register_department();
+
         self::$id = 'pages';
         self::$sort_order = ++$sort;
         self::$name = trans('Pagini');

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class Device extends Model
 {
@@ -15,6 +16,7 @@ class Device extends Model
         'name',
         'device_type',
         'device_identifier',
+        'active'
     ];
 
     public function user(): BelongsTo{
@@ -23,5 +25,16 @@ class Device extends Model
 
     public function sensors(){
         return $this->hasMany(Sensor::class);
+    }
+    public function getPictureUrlAttribute()
+    {
+        $picturePath = $this->picture;
+
+        if (!empty($picturePath)) {
+            if (Storage::disk('public')->exists($picturePath)) {
+                return asset('storage/' . $picturePath);
+            }
+        }
+        return asset('admin_assets/images/no_image.jpg');
     }
 }

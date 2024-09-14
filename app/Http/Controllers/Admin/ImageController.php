@@ -21,7 +21,7 @@ class ImageController extends Controller
         request()->validate([
             'picture'  => 'required|mimes:jpeg,bmp,png,jpg',
             'picture_small'  => 'mimes:jpeg,bmp,png,jpg',
-            'imageable_type' => 'in:News,Page,Poster,Project,Lesson,Consultation'
+            'imageable_type' => 'in:News,Page,Poster,Project,Lesson,Consultation,Device'
         ]);
 
         $image = new ImageLogic();

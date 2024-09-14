@@ -20,7 +20,7 @@ class FileController extends Controller
             'name' => ['string', 'max:255'],
             'category_id' => ['nullable'],
             'file'  => 'required|mimes:txt,pdf,xlx,png,jpg,docx,doc,ppt,pptx',
-            'fileable_type' => 'in:Page,News,Project,Report'
+            'fileable_type' => 'in:Page,News,Project,Report,Device'
         ]);
 
         $file_link = $request->file('file')->store('public/files');

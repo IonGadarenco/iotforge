@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('device_type');
             $table->string('device_identifier');
+            $table->boolean('active')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
