@@ -32,12 +32,12 @@ class DeviceController extends Controller
         ]);
 
 
-        $device = new Device();
-        $device->translateOrNew('en')->name = $inputs['name'];
-        $device->translateOrNew('ro')->name = $inputs['name'];
-        $device->translateOrNew('ru')->name = $inputs['name'];
-        $device->save();
+        $device = Device::create(['name' => $inputs['name']]);
 
+        // $device->translateOrNew('en')->name = $inputs['name'];
+        // $device->translateOrNew('ro')->name = $inputs['name'];
+        // $device->translateOrNew('ru')->name = $inputs['name'];
+        // $device->save();
 
         return redirect()->route('admin.devices.edit', $device->id);
     }
@@ -47,7 +47,6 @@ class DeviceController extends Controller
      */
     public function edit(Device $device)
     {
-
         return view(
             'admin.devices.edit',
             compact('device')
@@ -59,50 +58,16 @@ class DeviceController extends Controller
      */
     public function update(Request $request, Device $device)
     {
-        $request->validate([
-            'ro_name' => 'required|string',
-            'ru_name' => 'string|nullable',
-            'en_name' => 'string|nullable',
-            'ro_funder' => 'string|nullable',
-            'ru_funder' => 'string|nullable',
-            'en_funder' => 'string|nullable',
-            'ro_content' => 'string|nullable',
-            'ru_content' => 'string|nullable',
-            'en_content' => 'string|nullable',
-            'start_date' => 'string|nullable',
-            'end_date' => 'string|nullable',
-            'budget' => 'integer|nullable',
+      $inputs=  $request->validate([
+            'name' => 'required|string',
+            'device_type' => 'nullable|string',
+            'device_identifier' => 'nullable|string',
+            'user_id' => 'nullable',
         ]);
 
 
-        // Update translations
-        $device->translate('ro')->update([
-            'name' => $request->input('ro_name'),
-            'content' => $request->input('ro_content'),
-            'funder' => $request->input('ro_funder'),
-        ]);
-
-        $device->translate('en')->update([
-            'name' => $request->input('en_name'),
-            'content' => $request->input('en_content'),
-            'funder' => $request->input('en_funder'),
-
-        ]);
-
-        $device->translate('ru')->update([
-            'name' => $request->input('ru_name'),
-            'content' => $request->input('ru_content'),
-            'funder' => $request->input('ru_funder'),
-
-        ]);
-
-        // Update other device fields if needed
-        $device->update([
-            'start_date' => $request->input('start_date'),
-            'end_date' => $request->input('end_date'),
-            'budget' => $request->input('budget'),
-            'active' => 1
-        ]);
+              // Update other device fields if needed
+        $device->update($inputs);
 
         return redirect()->route('admin.devices');
     }

@@ -6,7 +6,7 @@
         <div class="content content-full">
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Editare Proiect</h3>
+                    <h3 class="block-title">Editare Dispozitiv</h3>
                     <div class="d-flex justify-content-end">
                         <a href="{{ route('admin.devices') }}" class="btn btn-outline-secondary me-1">Renunță</a>
                         <button type="submit" class="btn btn-primary">
@@ -64,6 +64,30 @@
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="row border border-info py-3 ">
+
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-group">
+                                                <label class="form-label" for="device_identifier"><i
+                                                        class="fas fa-laptop-code"></i>
+                                                    IMEI</label>
+                                                <input type="text" class="form-control" name="device_identifier"
+                                                    id="device_identifier" value="{{ $device->device_identifier ?? '' }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-group">
+                                                <label class="form-label" for="user_id"><i class="fas fa-users"></i> User</label>
+                                                <select class="form-control" name="user_id" id="user_id">
+                                                    <option value="">Select a User</option>
+                                                    @foreach (App\Models\User::all() as $user)
+                                                        <option value="{{ $user->id }}" {{ $device->user_id == $user->id ? 'selected' : '' }}>
+                                                            {{ $user->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                        </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="form-label" for="mdate"><i class="fas fa-calendar-alt"></i>
@@ -90,23 +114,6 @@
                                                     Tip</label>
                                                 <input type="text" class="form-control" name="device_type"
                                                     id="device_type" value="{{ $device->device_type ?? '' }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <div class="form-group">
-                                                <label class="form-label" for="device_identifier"><i
-                                                        class="fas fa-laptop-code"></i>
-                                                    IMEI</label>
-                                                <input type="text" class="form-control" name="device_identifier"
-                                                    id="device_identifier" value="{{ $device->device_identifier ?? '' }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <div class="form-group">
-                                                <label class="form-label" for="user_id"><i class="fas fa-users"></i>
-                                                    User</label>
-                                                <input type="text" class="form-control" name="user_id" id="user_id"
-                                                    value="{{ $device->user->name ?? '' }}">
                                             </div>
                                         </div>
                                     </div>
@@ -141,9 +148,9 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-4">
-                                                            <label class="form-label" for="ro_name">Nume(RO): </label>
-                                                            <input type="text" class="form-control" name="ro_name"
-                                                                id="ro_name" value="{{ $device->name ?? '' }}">
+                                                            <label class="form-label" for="name">Nume(RO): </label>
+                                                            <input type="text" class="form-control" name="name"
+                                                                id="name" value="{{ $device->name ?? '' }}">
                                                         </div>
                                                     </div>
 

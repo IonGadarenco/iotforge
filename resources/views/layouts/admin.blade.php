@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="d-flex align-items-center ms-auto">
-                        <div class="text-muted me-2">Admin Mail: <u>{{ __("string.email_administrativ") }}</u></div>
+                        <div class="text-muted me-2">Mail: <u>{{ Auth::guard("web")->user()->email }}</u></div>
                         <div class="dropdown d-inline-block ms-2">
                             <button type="button" class="btn btn-sm btn-alt-secondary d-flex align-items-center"
                                 id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
