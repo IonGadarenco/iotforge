@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use App\Models\Sensor;
-use Cache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache as FacadesCache;
 
 class SensorController extends Controller
 {
-    public function store(Request $request, $deviceId){
+    public function store(Request $request, $deviceId)
+    {
         $request->validate([
             "data" => "required|array"
         ]);
@@ -18,7 +19,7 @@ class SensorController extends Controller
         $data = $request->data;
 
         $cacheKey = "device_{$deviceId}_sensor_data";
-        Cache::put($cacheKey, $data, now()->addSeconds(4));
+        FacadesCache::put($cacheKey, $data, now()->addSeconds(4));
 
         if (isset($data['temperature']) && $data['temperature'] >= 50) {
             $sensor = new Sensor([

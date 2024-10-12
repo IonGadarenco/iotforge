@@ -1,6 +1,6 @@
 <div class="m-4 p-6 bg-white rounded-lg shadow-md">
     <!-- Device Details -->
-    <div >
+    <div>
         <h1 class="text-2xl font-bold mb-4">Device Details</h1>
         <table class="min-w-full text-left border-collapse border border-gray-200">
             <thead>
@@ -28,7 +28,7 @@
                 </tr>
                 <tr>
                     <td class="px-4 py-2 border-b border-gray-200">Created At</td>
-                    <td class="px-4 py-2 border-b border-gray-200">{{ $device->created_at->toFormattedDateString() }}</td>
+                    <td class="px-4 py-2 border-b border-gray-200">{{ $device->created_at }}</td>
                 </tr>
             </tbody>
         </table>
@@ -42,7 +42,7 @@
     <hr class="my-6 border-t border-gray-300">
 
     <!-- Sensor Data -->
-    @if ($device->sensors->isEmpty())
+    @if ($device->sensors)
         <p class="text-red-500">No sensors found for this device.</p>
     @else
         <div>
