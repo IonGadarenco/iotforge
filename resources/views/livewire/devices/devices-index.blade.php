@@ -1,5 +1,5 @@
-<div>
-    <div class="overflow-x-auto my-3">
+<div wire:key="device-list" wire:scroll>
+    <div class="overflow-x-auto my-1">
 
         <div class="relative my-2">
             <input type="text" wire:model.live.debounce.500ms="search"
@@ -47,9 +47,7 @@
             </tbody>
         </table>
         <div class="py-3">
-            {{ $devices->links() }}
-
+            {{ $devices->links(data: ['scrollTo' => 'false']) }}
         </div>
-
     </div>
 </div>
