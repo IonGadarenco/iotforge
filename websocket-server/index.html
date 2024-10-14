@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Control</title>
+</head>
+<body>
+    <button onclick="ledOn()">ON</button>
+    <button onclick="ledOff()">OFF</button>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');  // Conectează-te la WebSocket server
+
+        ws.onopen = () => {
+            console.log('Connected to WebSocket server');
+        };
+
+        ws.onmessage = (event) => {
+            console.log('Message from server:', event.data);
+        };
+
+        function ledOn() {
+            ws.send(JSON.stringify({ status: "connected", ledState: 'on', macAddress: 'E8:9F:6D:FE:5E:60' }));
+        }
+
+        function ledOff() {
+            ws.send(JSON.stringify({ status: "connected", ledState: 'off', macAddress: 'E8:9F:6D:FE:5E:60' }));
+        }
+    </script>
+</body>
+</html>
